@@ -92,6 +92,7 @@
             // Search User
             searchUsers(term) {
               axios.get(`/api/users/search/${term}`).then( response => {
+                this.paginatePath = response.data.path;
                 this.totalPages = response.data.last_page;
                 this.users = response.data.data; 
             })
